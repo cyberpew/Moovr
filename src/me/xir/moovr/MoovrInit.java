@@ -26,7 +26,7 @@ public class MoovrInit extends JavaPlugin implements Listener {
 		
 		if(event.isCancelled()||event.getFrom().getBlock().getLocation()==event.getFrom().getBlock().getLocation())
 			return;
-		Player player = (Player) sender;
+		Player player = event.getPlayer();
 		Block block = player.getLocation().getBlock();
 		if(block.getType() == Material.POWERED_RAIL) {
 			Block blockUnder = block.getRelative(BlockFace.DOWN);

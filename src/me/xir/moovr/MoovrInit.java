@@ -22,6 +22,8 @@ public class MoovrInit extends JavaPlugin {
 			Block blockUnder = block.getRelative(BlockFace.DOWN);
 			if(blockUnder.getType() == Material.GOLD_BLOCK){
 				player.sendMessage("YOU ARE STANDING ON THE CORRECT BLOCK COMBINATION!");
+			}else{
+				player.sendMessage("This is returning of else.");
 			}
 		}
 	}

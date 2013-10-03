@@ -32,7 +32,7 @@ public class MoovrInit extends JavaPlugin implements Listener {
 		if(block.getType() == Material.POWERED_RAIL) {
 			Block blockUnder = block.getRelative(BlockFace.DOWN);
 			if(blockUnder.getType() == Material.GOLD_BLOCK){
-				float walkspeed = this.getConfig().getInt("walkspeed");
+				float walkspeed = (float) this.getConfig().getDouble("walkspeed");
 				player.setWalkSpeed(walkspeed);
 			}
 		}else{

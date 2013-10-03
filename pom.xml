@@ -28,7 +28,7 @@
     </dependencies>
 
     <build>
-        <finalName>Moovr-v1.${project.version}</finalName>
+        <finalName>Moovr</finalName>
         <sourceDirectory>${basedir}/src</sourceDirectory>
         <resources>
             <resource>

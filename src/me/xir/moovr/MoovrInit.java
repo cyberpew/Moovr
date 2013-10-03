@@ -14,6 +14,7 @@ public class MoovrInit extends JavaPlugin implements Listener {
 	
 	public void onEnable(){
 		Bukkit.getServer().getPluginManager().registerEvents(this, this);
+		this.saveDefaultConfig();
 	}
 	
 	public void onDisable(){
@@ -31,12 +32,12 @@ public class MoovrInit extends JavaPlugin implements Listener {
 		if(block.getType() == Material.POWERED_RAIL) {
 			Block blockUnder = block.getRelative(BlockFace.DOWN);
 			if(blockUnder.getType() == Material.GOLD_BLOCK){
-				float walkspeed = 1;
+				float walkspeed = this.getConfig().getInt("walkspeed");
 				player.setWalkSpeed(walkspeed);
 			}
 		}else{
-			float dwalkspeed = 0.2F;
-			player.setWalkSpeed(dwalkspeed);
+			float defaultwalkspeed = 0.2F;
+			player.setWalkSpeed(defaultwalkspeed);
 		}
 	}
 }

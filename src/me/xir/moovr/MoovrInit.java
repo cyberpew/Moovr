@@ -31,9 +31,8 @@ public class MoovrInit extends JavaPlugin implements Listener {
 		if(block.getType() == Material.POWERED_RAIL) {
 			Block blockUnder = block.getRelative(BlockFace.DOWN);
 			if(blockUnder.getType() == Material.GOLD_BLOCK){
-				player.sendMessage("YOU ARE STANDING ON THE CORRECT BLOCK COMBINATION!");
-			}else{
-				player.sendMessage("This is returning of else.");
+				float walkspeed = 1;
+				player.setWalkSpeed(walkspeed);
 			}
 		}
 	}

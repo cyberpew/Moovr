@@ -34,6 +34,9 @@ public class MoovrInit extends JavaPlugin implements Listener {
 				float walkspeed = 1;
 				player.setWalkSpeed(walkspeed);
 			}
+		}else{
+			float dwalkspeed = 0.2F;
+			player.setWalkSpeed(dwalkspeed);
 		}
 	}
 }

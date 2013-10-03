@@ -1,6 +1,5 @@
-package me.xir.moovr;
+package me.cyberpew.moovr;
 
-import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.block.BlockFace;
@@ -8,20 +7,15 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerMoveEvent;
-import org.bukkit.plugin.java.JavaPlugin;
 
-public class MoovrInit extends JavaPlugin implements Listener {
+public class MoovrBlock implements Listener {
 	
-	public void onEnable(){
-		Bukkit.getServer().getPluginManager().registerEvents(this, this);
-		this.saveDefaultConfig();
-	}
+private Moovr plugin;
+
+public MoovrBlock(Moovr p) {
+	plugin = p;
+}
 	
-	public void onDisable(){
-		
-	}
-	
-	public Player sender;
 	@EventHandler
 	public void onPlayerMoveEvent(PlayerMoveEvent event) {
 		
@@ -32,8 +26,10 @@ public class MoovrInit extends JavaPlugin implements Listener {
 		if(block.getType() == Material.POWERED_RAIL) {
 			Block blockUnder = block.getRelative(BlockFace.DOWN);
 			if(blockUnder.getType() == Material.GOLD_BLOCK){
-				float walkspeed = (float) this.getConfig().getDouble("walkspeed");
-				player.setWalkSpeed(walkspeed);
+				if (player.hasPermission("moovr.use")){
+					float walkspeed = (float) plugin.getConfig().getDouble("moovr.walkspeed");
+					player.setWalkSpeed(walkspeed);
+				}
 			}
 		}else{
 			float defaultwalkspeed = 0.2F;

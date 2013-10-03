@@ -1,6 +1,6 @@
 name: '${project.name}'
 main: me.xir.moovr.MoovrInit
-version: '${project.version}'
+version: 0.1.'${project.version}'
 description: We like to moove it.
 author: Cyberpew
 dev-url: '${project.url}'

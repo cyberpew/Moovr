@@ -1,6 +1,5 @@
 package me.xir.moovr;
 
-import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.block.BlockFace;
@@ -14,13 +13,15 @@ public class MoovrInit extends JavaPlugin {
 	public Player sender;
 	@EventHandler
 	public void onPlayerMoveEvent(PlayerMoveEvent event) {
+		
+		if(event.isCancelled()||event.getFrom().getBlock().getLocation()==event.getFrom().getBlock().getLocation())
+			return;
 		Player player = (Player) sender;
-		Location loc = player.getLocation();
-		Block block = loc.getBlock().getRelative(BlockFace.DOWN);
+		Block block = player.getLocation().getBlock();
 		if(block.getType() == Material.POWERED_RAIL) {
 			Block blockUnder = block.getRelative(BlockFace.DOWN);
 			if(blockUnder.getType() == Material.GOLD_BLOCK){
-				player.sendMessage("YOU ARE STANDING ON THE CORRECT COMBINATION OF BLOCKS!");
+				player.sendMessage("YOU ARE STANDING ON THE CORRECT BLOCK COMBINATION!");
 			}
 		}
 	}

@@ -13,7 +13,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 public class MoovrInit extends JavaPlugin implements Listener {
 	
 	public void onEnable(){
-		Bukkit.getLogger().info("Initialized.");
+		Bukkit.getServer().getPluginManager().registerEvents(this, this);
 	}
 	
 	public void onDisable(){

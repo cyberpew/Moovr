@@ -19,8 +19,6 @@ public MoovrBlock(Moovr p) {
 	@EventHandler
 	public void onPlayerMoveEvent(PlayerMoveEvent event) {
 		
-		if(event.isCancelled()||event.getFrom().getBlock().getLocation()==event.getFrom().getBlock().getLocation())
-			return;
 		Player player = event.getPlayer();
 		Block block = player.getLocation().getBlock();
 		if(block.getType() == Material.POWERED_RAIL) {

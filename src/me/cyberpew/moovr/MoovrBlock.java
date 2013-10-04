@@ -19,6 +19,7 @@ public MoovrBlock(Moovr p) {
 	@EventHandler
 	public void onPlayerMoveEvent(PlayerMoveEvent event) {
 		
+		event.getFrom().getBlock().getLocation().equals(event.getTo().getBlock().getLocation());
 		Player player = event.getPlayer();
 		Block block = player.getLocation().getBlock();
 		if(block.getType() == Material.POWERED_RAIL) {

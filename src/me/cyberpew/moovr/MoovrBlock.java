@@ -22,17 +22,20 @@ public MoovrBlock(Moovr p) {
 		event.getFrom().getBlock().getLocation().equals(event.getTo().getBlock().getLocation());
 		Player player = event.getPlayer();
 		Block block = player.getLocation().getBlock();
-		if(block.getType() == Material.POWERED_RAIL) {
-			Block blockUnder = block.getRelative(BlockFace.DOWN);
-			if(blockUnder.getType() == Material.GOLD_BLOCK){
-				if (player.hasPermission("moovr.use")){
-					float walkspeed = (float) plugin.getConfig().getDouble("moovr.walkspeed");
-					player.setWalkSpeed(walkspeed);
+		Block blockAbove = block.getRelative(BlockFace.UP);
+		if(blockAbove.getType() == Material.AIR){
+			if(block.getType() == Material.POWERED_RAIL) {
+				Block blockUnder = block.getRelative(BlockFace.DOWN);
+				if(blockUnder.getType() == Material.GOLD_BLOCK){
+					if (player.hasPermission("moovr.use")){
+						float walkspeed = (float) plugin.getConfig().getDouble("moovr.walkspeed");
+						player.setWalkSpeed(walkspeed);
+					}
 				}
+			}else{
+				float defaultwalkspeed = 0.2F;
+				player.setWalkSpeed(defaultwalkspeed);
 			}
-		}else{
-			float defaultwalkspeed = 0.2F;
-			player.setWalkSpeed(defaultwalkspeed);
 		}
 	}
 }

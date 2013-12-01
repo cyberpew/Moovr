@@ -6,7 +6,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.Listener;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
-import org.mcstats.Metrics;
+import org.mcstats.MetricsLite;
 
 public class Moovr extends JavaPlugin implements Listener {
 	
@@ -17,12 +17,12 @@ public class Moovr extends JavaPlugin implements Listener {
 		saveDefaultConfig();
 		
 		//Add PluginMetrics
-		try {
-		    Metrics metrics = new Metrics(this);
-		    metrics.start();
-		} catch (IOException e) {
-		    // Failed to submit the stats :-(
-		}
+        try {
+            MetricsLite metrics = new MetricsLite(this);
+            metrics.start();
+        } catch (IOException e) {
+        		logger.log(Level.SEVERE, e.getMessage());
+        }
 	}
 	
 	public void onDisable(){

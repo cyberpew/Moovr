@@ -1,6 +1,8 @@
 package me.cyberpew.moovr;
 
 import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import org.bukkit.entity.Player;
 import org.bukkit.event.Listener;
@@ -11,6 +13,8 @@ import org.mcstats.MetricsLite;
 public class Moovr extends JavaPlugin implements Listener {
 	
 	public void onEnable(){
+		Logger logger = Logger.getLogger("Minecraft");
+		
 		PluginManager pm = getServer().getPluginManager();
 		pm.registerEvents(new MoovrBlock(this), this);
 		

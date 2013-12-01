@@ -1,6 +1,6 @@
 name: '${project.name}'
 main: me.cyberpew.moovr.Moovr
-version: 0.1.${project.version}
+version: '${project.version}'
 description: We like to moove it.
 author: Cyberpew
 dev-url: '${project.url}'

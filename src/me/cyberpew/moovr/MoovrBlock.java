@@ -23,8 +23,9 @@ public MoovrBlock(Moovr p) {
 		Player player = event.getPlayer();
 		Block block = player.getLocation().getBlock();
 		Block blockAbove = block.getRelative(BlockFace.UP);
+		Block blockJump = block.getRelative(BlockFace.UP, 2);
 		if(player.hasPermission("moovr.use") || player.getPlayer().isOp()){
-			if (blockAbove.getType() == Material.AIR) {
+			if (blockJump.getType() == Material.AIR) {
 				if(blockAbove.getType() == Material.AIR){
 					if(block.getType() == Material.POWERED_RAIL) {
 						Block blockUnder = block.getRelative(BlockFace.DOWN);

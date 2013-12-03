@@ -25,8 +25,7 @@ public MoovrBlock(Moovr p) {
 		Block blockAbove = block.getRelative(BlockFace.UP);
 		Block blockJump = block.getRelative(BlockFace.UP, 0);
 		if(player.hasPermission("moovr.use") || player.getPlayer().isOp()){
-			if (blockJump.getType() == Material.AIR) {
-				if(blockAbove.getType() == Material.AIR){
+				if(blockAbove.getType() == Material.AIR || blockJump.getType() == Material.AIR) {
 					if(block.getType() == Material.POWERED_RAIL) {
 						Block blockUnder = block.getRelative(BlockFace.DOWN);
 						if(blockUnder.getType() == Material.GOLD_BLOCK){
@@ -39,8 +38,7 @@ public MoovrBlock(Moovr p) {
 						float defaultwalkspeed = 0.2F;
 						player.setWalkSpeed(defaultwalkspeed);
 					}
-				}	
-			}
+				}
 		}
 	}
 }

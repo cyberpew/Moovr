@@ -26,8 +26,9 @@ public class MoovrBlock implements Listener {
 		Block blockJumpTwo = block.getRelative(BlockFace.UP, 2);
 		Block blockJumpOne = block.getRelative(BlockFace.UP, 1);
 		Block blockJumpZero = block.getRelative(BlockFace.UP, 0);
+		Block blockJumpNegative = block.getRelative(BlockFace.UP, -1);
 		if (player.hasPermission("moovr.use") || player.getPlayer().isOp()) {
-			if (blockAbove.getType() == Material.AIR || blockJumpTwo.getType() == Material.AIR || blockJumpOne.getType() == Material.AIR || blockJumpZero.getType() == Material.AIR) {
+			if (blockAbove.getType() == Material.AIR || blockJumpTwo.getType() == Material.AIR || blockJumpOne.getType() == Material.AIR || blockJumpZero.getType() == Material.AIR || blockJumpNegative.getType() == Material.AIR) {
 				if (block.getType() == Material.POWERED_RAIL) {
 					Block blockUnder = block.getRelative(BlockFace.DOWN);
 					if (blockUnder.getType() == Material.GOLD_BLOCK) {
